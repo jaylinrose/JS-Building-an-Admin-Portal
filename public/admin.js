@@ -15,6 +15,12 @@ async function bookQuantityChange() {
     let li = document.createElement('li')
     li.textContent = book.title
 
+   let quantityInput = document.createElement('input')
+   quantityInput.value = book.quantityInput
+
+   let saveButton = document.createElement('button')
+   saveButton.textContent = 'Save'
+
    
 
 
