@@ -3,13 +3,12 @@
 async function main() {
     const response = await fetch('http://localhost:3001/listBooks')
     const result = await response.json()
-  result.forEach(bookQuantityChange)
-
+  result.forEach((book) => bookQuantityChange(book))
 }
 
 
 
-async function bookQuantityChange() {
+function bookQuantityChange(book) {
     let root = document.querySelector('#root')
     
     let li = document.createElement('li')
@@ -22,7 +21,7 @@ async function bookQuantityChange() {
    saveButton.textContent = 'Save'
 
    saveButton.addEventListener('click', () =>{
-    fetch('http://localhost:3001/updateBook', {
+     fetch('http://localhost:3001/updateBook', {
         method: 'PATCH',
         headers: {
             'Content-Type' : 'application/json'
